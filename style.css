@@ -1,0 +1,97 @@
+/* css 변수를 사용해 칼라를 미리 지정해 둘 수 있다 */
+:root {
+   --text-color: #f0f4f5;
+   --background-color: #263343;
+   --accent-clolr: #d49466;
+}
+body {
+   margin: 0;
+   font-family: 'Source Sans 3';
+}
+a {
+   text-decoration: none;
+   color: #fff;
+}
+.navbar {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   background-color: #263343;
+   padding: 8px 12px;
+}
+.navbar__logo {
+   font-size: 24px;
+   color: #fff;
+}
+.navbar__logo i {
+   color: #d49466;
+}
+.navbar__menu {
+   display: flex;
+   list-style: none;
+   padding: 0;
+}
+.navbar__menu li {
+   padding: 8px 12px;
+   /* 패딩값으로 버튼의 영역을 넓혀준다 */
+}
+.navbar__menu li:hover {
+   /* 네비메뉴 마우스 호버될때 색상 변화 */
+   background-color: #d49466;
+   border-radius: 5px;
+}
+.navbar__icons {
+   list-style: none;
+   color: #fff;
+   display: flex;
+   padding-left: 0;
+}
+
+.navbar__icons li {
+   padding: 8px 12px;
+}
+.navbar__toggleBtn {
+   display: none;
+   /* 토글버튼은 화면이 768px 이상일때는 보이지 않는다 */
+   position: absolute;
+   /* 위치 고정시킴 */
+   right: 32px;
+   font-size: 24px;
+   color: #d49466;
+}
+
+@media screen and (max-width: 768px) {
+   /* 반응형 웹페이지시 사용하는 메크로 */
+   .navbar {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 8px 12px;
+   }
+   .navbar__menu {
+      display: none;
+      /* 사이즈가 768px보다 작아지면 화면에서 안보임 */
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+
+   }
+   .navbar__menu li {
+      width: 100%;
+      text-align: center;
+   }
+   .navbar__icons {
+      display: none;
+      /* 사이즈가 768px보다 작아지면 화면에서 안보임 */
+      justify-content: center;
+      width: 100%;
+   }
+   .navbar__toggleBtn {
+      display: block;
+      /* 사이즈가 768px보다 작아지면 화면에 나타남 */
+   }
+   .navbar__menu.active,
+   .navbar__icons.active {
+      display: flex;
+      /* 토글버튼 클릭시 active되도록 JavaScript에 작성해둔다 */
+   }
+}
